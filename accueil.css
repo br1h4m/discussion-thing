@@ -1,10 +1,23 @@
 /* Reset et styles de base */
-* {
+*
+ 
+
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+.userinfo {
+    background: blue !important;
+    border: 3px solid orange !important;
+    padding: 20px !important;
+    margin: 10px !important;
+}
 
+.usersname {
+    color: pink !important;
+    font-size: 30px !important;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -66,7 +79,7 @@ body {
     justify-content: center;
     width: 50px;                   /* largeur de la case */
     height: 50px;                  /* hauteur de la case */
-    background-image: url('images/user.png');
+    
     background-size: cover;
     background-position: center;
     border-radius: 50%;
@@ -358,3 +371,7 @@ details[open] .navigations {
     color: #667eea;
     transition: color 0.3s ease;
 }
+
+
+
+

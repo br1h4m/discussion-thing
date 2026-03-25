@@ -48,6 +48,7 @@ if (isset($_POST["delete_index"]) && isset($_POST["delete_comment"])) {
     <div class="navigationbardiv">
         <a href="accueil.php" class="">Accueil</a>
         <?php if (isset($_SESSION["User"]["username"])):?>
+            <a href="members.php" class="comptehref">Membres</a>
              <a href="compte.php" class="comptehref">Compte</a>               
              <details>
 

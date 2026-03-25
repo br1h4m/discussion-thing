@@ -25,6 +25,7 @@ session_destroy();
     <div class="navigationbardiv">
         <a href="accueil.php" class="">Accueil</a>
         <?php if (isset($_SESSION["User"]["username"])):?>
+            <a href="members.php" class="comptehref">Membres</a>
              <a href="compte.php" class="comptehref">Compte</a>               
              <details>
 
@@ -49,7 +50,12 @@ session_destroy();
     <?php
     echo '<h1 class="compte_">Username: '.$_SESSION["User"]["username"].'</h1><br>';
     echo '<h1 class="compte_">Email: '.$_SESSION["User"]["email"].'</h1><br>';
-    echo '<h1 class="compte_">Role: '.$_SESSION["User"]["role"].'</h1><br>';
+    if ($_SESSION["User"]["role"] == "admin") {
+    echo '<h1 class="compte_">Role: <span style="color:red">'.$_SESSION["User"]["role"].'</span></h1><br>';
+    }
+    else if ($_SESSION["User"]["role"] == "membre") {
+    echo '<h1 class="compte_">Role: <span style="color:green">'.$_SESSION["User"]["role"].'</span></h1><br>';
+    }
     ?>
 </div>
     <body>
