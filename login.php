@@ -9,18 +9,17 @@
         header("location: login.html");
         exit;
     }
-    $username = $_POST["username"];
-    $email = $_POST["email"];
+    $username = trim($_POST["username"]);
+    $email = trim($_POST["email"]);
     $password = $_POST["password"];
 
     $lignes = file("Users.txt");
     foreach ($lignes as $ligne) {
         $mots = explode(" ", trim($ligne));
         if (($email == $mots[0]) || ($email == $mots[1])) {
-            if ($password == $mots[2]) {
-                
-                header("location: accueil.php");
+            if (password_verify($password, $mots[2])) {
                 $_SESSION["User"] = ["username" => $mots[0], "email" => $mots[1], "role" => $mots[3]];
+                header("location: accueil.php");
                 exit;
             } 
             else {
