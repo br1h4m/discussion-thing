@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["User"])) {
-    header("location: login.html");
+    header("location: login.php");
     exit;
 }
 if (isset($_POST["logout"])) {
@@ -42,7 +42,7 @@ session_destroy();
                   </ul>
              </details>   
         <?php elseif (!isset($_SESSION["User"]["username"])): ?>
-            <a href="login.html" class="loginbouton">Login</a>
+            <a href="login.php" class="loginbouton">Login</a>
         <?php endif; ?>  
     </div>
 </nav>
