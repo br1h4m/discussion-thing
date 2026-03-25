@@ -1,0 +1,360 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Barre de navigation - version mobile-first */
+.navigationbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* changement ici pour mobile */
+    top: 0;
+    z-index: 1000;
+    padding: 0.75rem 0;
+}
+
+.navigationbardiv {
+    display: flex;
+    justify-content: space-between; /* mobile : espace entre les items */
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+}
+
+/* Version desktop - centré */
+@media (min-width: 768px) {
+    .navigationbardiv {
+        justify-content: center; /* items centrés sur desktop */
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 2rem;
+        padding: 0 2rem;
+    }
+}
+
+/* Liens de navigation */
+.navigationbardiv a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0.75rem;
+    border-radius: 5px;
+    font-size: 1rem; /* taille augmentée */
+}
+
+.navigationbardiv a:hover {
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Compte utilisateur */
+/* Compte utilisateur - background complet sur hover */
+.comptehref {
+    display: inline-flex;          /* prend l'espace et centre le contenu */
+    align-items: center;
+    justify-content: center;
+    width: 50px;                   /* largeur de la case */
+    height: 50px;                  /* hauteur de la case */
+    background-image: url('images/user.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* espace entre compte et notifications */
+}
+.comptehref:hover {
+    background-color: rgba(102,126,234,0.25); /* couleur sur tout le bloc */
+    transform: scale(1.05); /* léger effet zoom */
+}
+
+/* Détails / dropdown */
+details {
+    position: relative;
+    display: inline-block;
+}
+
+details summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] .navigations {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.navigations {
+    position: fixed; /* mobile : dropdown flottant */
+    top: auto;
+    right: 0.5rem;
+    left: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 0;
+    min-width: 140px;
+    display: none;
+    margin-top: 0.5rem;
+    z-index: 1001;
+}
+
+@media (min-width: 768px) {
+    .navigations {
+        position: absolute;
+        right: 0;
+        min-width: 160px;
+    }
+}
+
+.navigations li {
+    list-style: none;
+    padding: 0;
+}
+
+/* Bouton logout */
+.logoutbouton {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: left;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.logoutbouton:hover {
+    background: #f8f9fa;
+    color: #c82333;
+}
+
+/* Bouton login */
+.loginbouton {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    padding: 0.6rem 1.5rem !important;
+    border-radius: 25px !important;
+    font-size: 1rem !important;
+}
+
+.loginbouton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Section commentaire */
+.sectioncommentaire {
+    margin: 1.5rem auto;
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 600px; /* plus lisible sur desktop */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.labelcommentaire {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.sectioncommentaire form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .sectioncommentaire form {
+        flex-direction: row;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.champtext {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem; /* plus lisible */
+}
+
+.champtext:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.sectioncommentaire input[type="submit"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .sectioncommentaire input[type="submit"] {
+        width: auto;
+    }
+}
+
+.sectioncommentaire input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Commentaires */
+.commentaire_envoye {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    border-left: 4px solid #667eea;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.sectioncommentaire form[style="display:inline"] {
+    display: inline-block !important;
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.sectioncommentaire input[name="delete_comment"] {
+    background: #dc3545;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    width: auto;
+    display: inline-block;
+}
+
+.sectioncommentaire input[name="delete_comment"]:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile : textes plus grands et cliquables */
+/* Section commentaire responsive maximale sur mobile */
+@media (max-width: 768px) {
+    .sectioncommentaire {
+        width: 90% !important;   /* force 90% de l'écran */
+        max-width: none !important; /* supprime la limite */
+        margin: 1rem auto;
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .labelcommentaire {
+        font-size: 1.3rem; /* texte plus grand */
+    }
+
+    .champtext {
+        font-size: 1.1rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .sectioncommentaire input[type="submit"] {
+        font-size: 1.1rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .commentaire_envoye {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .navigationbardiv a,
+    .logoutbouton,
+    .loginbouton,
+    details summary {
+        font-size: 1.2rem;
+        min-height: 50px;
+    }
+
+    details summary img {
+        height: 40px !important;
+        width: 40px !important;
+    }
+}
+/* Conteneur infos compte */
+.infocompte {
+    width: 90%;               /* prend 90% de l'écran sur mobile */
+    max-width: 600px;         /* limite sur desktop */
+    margin: 2rem auto;        /* centré horizontalement, avec un peu de marge verticale */
+    padding: 1.5rem 2rem;     /* espace intérieur confortable */
+    background: rgba(255, 255, 255, 0.95); /* fond clair semi-transparent */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres de compte */
+.compte_ {
+    font-size: 1.2rem;       /* taille lisible sur mobile */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+    word-wrap: break-word;    /* texte long sur plusieurs lignes */
+}
+
+/* Espacement entre lignes sur desktop */
+@media (min-width: 768px) {
+    .infocompte {
+        padding: 2rem 3rem;
+    }
+
+    .compte_ {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Option : survol léger pour les titres */
+.compte_:hover {
+    color: #667eea;
+    transition: color 0.3s ease;
+}

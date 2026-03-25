@@ -1,0 +1,62 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 320px;
+    text-align: center;
+}
+
+.labelsite {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.buttonl {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.buttonl[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buttonl[type="submit"]:hover {
+    background-color: #357ABD;
+}
+
+.textl {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: normal;
+}
+
+.textl:hover {
+    text-decoration: underline;
+}

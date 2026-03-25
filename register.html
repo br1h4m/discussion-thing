@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="style.css">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="login">
+            <form action="register.php" method="POST">
+                <label class="labelsite">Username: </label>
+                <input type="text" name="username" class="buttonl" required>
+
+                <label class="labelsite">Email: </label>
+                <input type="email" name="email" class="buttonl" required>
+
+                <label class="labelsite">Password: </label>
+                <input type="password" name="password" class="buttonl" required>
+
+                <label class="labelsite">Confirm password: </label>
+                <input type="password" name="confirmpassword" class="buttonl" required>
+
+                <input type="submit" value="Register" class="buttonl">
+            </form>
+        </div>
+        <div class="bodylogin">
+            <a href="login.html" class="textl">Or login</a>
+        </div>
+    </body>
+</html>
